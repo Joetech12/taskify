@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {Alert, SafeAreaView, Text} from 'react-native';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
@@ -17,20 +17,20 @@ const Signin = ({navigation}) => {
   };
 
   const onSubmit = () => {
-    // auth()
-    //   .signInWithEmailAndPassword(values.email, values.password)
-    //   .then(() => {
-    //     console.log('User signed in!');
-    //   })
-    //   .catch(error => {
-    //     if (error.code === 'auth/email-already-in-use') {
-    //       Alert.alert('That email address is already in use!');
-    //     } else if (error.code === 'auth/invalid-email') {
-    //       Alert.alert('That email address is invalid!');
-    //     } else {
-    //       Alert.alert(error.message);
-    //     }
-    //   });
+    auth()
+      .signInWithEmailAndPassword(values.email, values.password)
+      .then(() => {
+        console.log('User signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('That email address is already in use!');
+        } else if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        } else {
+          Alert.alert(error.message);
+        }
+      });
   };
 
   return (

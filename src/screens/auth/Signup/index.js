@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-// import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 
 import Button from '../../../components/Button';
 import Checkbox from '../../../components/Checkbox';
@@ -43,6 +43,10 @@ const Signup = ({navigation}) => {
       Alert.alert('Please enter first name and last name');
       return;
     }
+    if (!values.password || !values.confirm_password) {
+      Alert.alert('Please enter password');
+      return;
+    }
     if (values.password !== values.confirm_password) {
       Alert.alert('Passwords do not match');
       return;
@@ -52,24 +56,24 @@ const Signup = ({navigation}) => {
       return;
     }
 
-    // auth()
-    //   .createUserWithEmailAndPassword(values.email, values.password)
-    //   .then(() => {
-    //     auth().currentUser.updateProfile({
-    //       displayName: `${values.first_name} ${values.last_name}`,
-    //     });
-    //   })
-    //   .catch(error => {
-    //     if (error.code === 'auth/email-already-in-use') {
-    //       Alert.alert('That email address is already in use!');
-    //     }
+    auth()
+      .createUserWithEmailAndPassword(values.email, values.password)
+      .then(() => {
+        auth().currentUser.updateProfile({
+          displayName: `${values.first_name} ${values.last_name}`,
+        });
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('That email address is already in use!');
+        }
 
-    //     if (error.code === 'auth/invalid-email') {
-    //       Alert.alert('That email address is invalid!');
-    //     }
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
 
-    //     console.error(error);
-    //   });
+        console.error(error);
+      });
   };
 
   return (
