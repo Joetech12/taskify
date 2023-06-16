@@ -17,7 +17,7 @@ const Tasks = () => {
   const [category, setCategory] = useState('all');
   const [filteredTasks, setFilteredTasks] = useState([]);
 
-//   console.log(tasks);
+  //   console.log(tasks);
 
   useEffect(() => {
     if (category && category !== 'all') {

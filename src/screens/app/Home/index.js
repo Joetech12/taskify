@@ -53,12 +53,14 @@ const Home = ({navigation}) => {
         const deadlineFormatted = moment(deadline).format('YYYY-MM-DD');
         return moment(deadlineFormatted).isBefore(today);
       });
-      const quickWin = tasks?.filter(task => task?.category === 'quick_task');
+      //   const quickWin = tasks?.filter(task => task?.category === 'quick_task');
+      const completed = tasks?.filter(task => task?.checked === true);
+      const unCompleted = tasks?.filter(task => task?.checked === false);
 
       setCounts({
-        highPriority: highPriority?.length,
+        unCompleted: unCompleted?.length,
         dueDeadline: dueDeadline?.length,
-        quickWin: quickWin?.length,
+        completed: completed?.length,
       });
     }
   }, [tasks]);
@@ -71,13 +73,13 @@ const Home = ({navigation}) => {
         <Title type="thin">Daily Tasks:</Title>
 
         <View style={styles.row}>
-          <StatusCard label="High Priority" count={counts?.highPriority} />
+          <StatusCard label="Uncompleted" count={counts?.unCompleted} />
           <StatusCard
             label="Due Deadline"
             type="error"
             count={counts?.dueDeadline}
           />
-          <StatusCard label="Quick Win" count={counts?.quickWin} />
+          <StatusCard label="Completed" count={counts?.completed} />
         </View>
 
         <TouchableOpacity

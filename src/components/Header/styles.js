@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.lightGrey,
   },
   title: {
     fontSize: 16,

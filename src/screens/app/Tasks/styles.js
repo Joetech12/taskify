@@ -10,10 +10,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 24,
     marginVertical: 8,
+    borderWidth: 1,
+    borderColor: colors.lightGrey,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    borderRadius: 8,
   },
   taskText: {
     color: colors.black,
-    marginLeft: 8,
+    marginLeft: 12,
   },
   checked: {
     textDecorationLine: 'line-through',
