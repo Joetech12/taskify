@@ -18,13 +18,14 @@ const styles = StyleSheet.create({
     color: colors.black,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 30,
   },
   subtitle: {
     fontSize: 15,
     color: colors.grey,
     textAlign: 'center',
-    marginVertical: 16,
+    marginTop: 8,
+    marginBottom: 20,
   },
   footer: {
     position: 'absolute',

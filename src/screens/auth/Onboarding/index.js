@@ -9,17 +9,16 @@ const Onboarding = ({navigation}) => {
       <View style={{flex: 1}}>
         <Image
           style={styles.image}
-          source={require('../../../assets/onboarding.png')}
+          source={require('../../../assets/onboarding2.png')}
         />
 
         <View style={styles.footer} />
       </View>
 
       <View style={styles.content}>
-        <Text style={styles.title}>Best task management app</Text>
+        <Text style={styles.title}>Taskify</Text>
         <Text style={styles.subtitle}>
-          Get organized by sorting out all your tasks and boost your
-          productivity.
+          Sort your tasks, boast your productivity.
         </Text>
 
         <Button onPress={() => navigation.navigate('Signin')}>Log in</Button>
